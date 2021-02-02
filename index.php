@@ -18,17 +18,17 @@
         if(isset($_SESSION['user']))
         { 
 
-            $r = $bdd->prepare('SELECT * FROM tutoformulaire WHERE email = ?');
+            $r = $bdd->prepare('SELECT * FROM utilisateurs WHERE email = ?');
             $r->execute(array($_SESSION['user']));
             $data = $r->fetch();
     ?>
 
     <div class="container text-center">
                     <br>
-                    <h1 class="">Accueil</h1>
+                    <h1 class="text-white">Accueil</h1>
                     <br>
                     <div class="text-center">
-                        <h3>Bonjour ! <?php echo $data['nom']." ".$data['prenom']; ?></h3>
+                        <h3 class="text-danger">Bonjour ! <?php echo $data['nom']." ".$data['prenom']; ?></h3>
                     </div>
                     <br> 
                     <a href="deconnexion.php" class="btn btn-danger">Déconnexion</a>

@@ -27,12 +27,13 @@
                                     $check = $bdd->prepare('SELECT email, password FROM utilisateurs WHERE email = ?');
                                     $check->execute(array($email));
                                     $data = $check->fetch();
+                                    
                                     $row = $check->rowCount();
 
                                     if($row == 1)
                                     {
                                         $password = hash('sha256', $password);
-
+                                        echo $password;
                                         if($password == $data['password'])
                                         {
                                             $_SESSION['user'] = $email;
